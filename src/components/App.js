@@ -19,18 +19,18 @@ const App = () => {
     // setY(y1);
 };
 
-  const handleListener= ()=>{
-    switch (event.keyCode){
-        case 39:
+  const handleListener= (event)=>{
+    switch (event.key){
+        case "ArrowRight":
             updateXY(ballPosition.left + 5,ballPosition.top);
             break;
-        case 40:
+        case "ArrowDown":
             updateXY(ballPosition.left,ballPosition.top + 5);
             break;
-        case 37:
+        case "ArrowLeft":
             updateXY(ballPosition.left - 5,ballPosition.top);
             break;
-        case 38:
+        case "ArrowUp":
             updateXY(ballPosition.left ,ballPosition.top - 5);
             break;
             default:
@@ -40,7 +40,6 @@ const App = () => {
 
   useEffect(()=>{
   document.addEventListener("keydown", handleListener);
-    // console.log("Key Listener is", keyListener);
     return function () {
         document.removeEventListener("keydown", handleListener);
     };
